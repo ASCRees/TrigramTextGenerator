@@ -1,0 +1,45 @@
+﻿@using TrigramTextGenerator.Models
+@model TextTrigramModel
+
+@{
+    ViewBag.Title = "Trigram Text Generator";
+    var myModel = Model;
+}
+
+@using (Html.BeginForm("GenerateText", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="mainText">
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    Enter Source Text
+                </div>
+                <div>
+                    @Html.TextAreaFor(m => m.SourceText, new { id = "sourceText", cols = "60", rows = "20" })
+                    @Html.ValidationMessageFor(m => m.SourceText, null, new { @class = "field-validation-error", data_valmsg_for = "UserNameSearch" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    Generated Text
+                </div>
+                <div>
+                    @Html.TextAreaFor(m => myModel.GeneratedText, new { id = "generatedText", cols = "60", rows = "20", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <input type="submit" name="GenerateText" value="Generate Text" />
+            </div>
+            <div class="col-md-4 userNameErrorDiv">
+
+            </div>
+
+        </div>
+    </div>
+
+}
+
+

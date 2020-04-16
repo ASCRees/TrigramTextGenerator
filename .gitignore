@@ -1,0 +1,6 @@
+.vs/
+packages/
+TrigramTextGenerator/obj/
+TrigramTextGenerator/bin/
+TrigramTextGenerator.Tests/obj/
+TrigramTextGenerator.Tests/bin/
